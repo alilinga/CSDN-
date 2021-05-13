@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ll.mapper.MenuMapper" >
+    <resultMap id="BaseresultType" type="com.ll.bean.Menu">
+        <id property="id" column="id"/>
+        <result property="pattern" column="pattern"/>
+        <collection property="roles" ofType="com.ll.bean.Role">
+            <id property="id" column="id"/>
+            <result property="name" column="rname"/>
+            <result property="nameZh" column="nameZh"/>
+        </collection>
+    </resultMap>
+    <select id="getAllMenus" resultMap="BaseresultType">
+        select menu.*,role.id rid,role.name rname,role.nameZh from menu
+        left join menu_role on menu.id=menu_role.mid
+        left join role on menu_role.rid=role.id
+    </select>
+</mapper>
