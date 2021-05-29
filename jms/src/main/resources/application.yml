@@ -1,0 +1,7 @@
+spring:
+  activemq:
+    broker-url: tcp://127.0.0.1:61616  # 61616是通信端口号
+    packages:
+      trust-all: true  # 信任所有的包
+    user: admin  # 客户端的账户
+    password: admin  # 客户端的密码
