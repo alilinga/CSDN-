@@ -1,0 +1,16 @@
+# 把邮件投递到腾讯的SMTP邮件服务器上
+spring:
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: 发送人的QQ邮箱号
+    password: 授权码
+    default-encoding: utf-8
+    # 加密连接的工具类
+    properties:
+      mail:
+        smtp:
+          SocketFactory:
+            class: javax.net.SocketFactory
+      # 可在控制台看到邮件发送的过程
+        debug: true
